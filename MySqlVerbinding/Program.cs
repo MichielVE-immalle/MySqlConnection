@@ -8,7 +8,8 @@ namespace MySqlVerbinding
         static void Main(string[] args)
         {
             MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = "";
+            conn.ConnectionString = 
+                "Server=192.168.56.101;Port=3306;Database=Concerten;Uid=Imma;Pwd=imma;";
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -16,7 +17,7 @@ namespace MySqlVerbinding
 
             conn.Open();
 
-            int aantalArtiesten = (int)cmd.ExecuteScalar();
+            int aantalArtiesten = Convert.ToInt32(cmd.ExecuteScalar());
 
             Console.WriteLine("Aantal artiesten : {0}", aantalArtiesten);
         }
